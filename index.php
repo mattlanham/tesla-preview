@@ -120,6 +120,7 @@
                         <option value="lightgrey">Light Grey</option>
                         <option value="slate">Slate</option>
                         <option value="dramatic">Dramatic</option>
+                        <option value="dramatic2">Dramatic 2</option>
                     </select>
                 </div>
             

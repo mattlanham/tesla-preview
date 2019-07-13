@@ -1,7 +1,10 @@
 <?php
     $dramatic = FALSE;
+    $dramatic2 = FALSE;
     if (array_key_exists('background', $_GET) && $_GET['background'] == 'dramatic') {
         $dramatic = TRUE;
+    } else if (array_key_exists('background', $_GET) && $_GET['background'] == 'dramatic2') {
+        $dramatic2 = TRUE;
     }
 
 
@@ -46,6 +49,8 @@
 
     if ($dramatic) {
         $_GET['facing'] = 'left';
+    } else if ($dramatic2) {
+        $_GET['facing'] = 'right';
     }
 
     if (array_key_exists('r', $_GET) && array_key_exists('g', $_GET) && array_key_exists('b', $_GET)) {
@@ -71,6 +76,8 @@
 
         if ($dramatic) {
             $bg = imagecreatefrompng('dramatic.png');
+        } else if ($dramatic2) {
+            $bg = imagecreatefrompng('dramatic2.png');
         }
 
         // Build the image URL
@@ -97,9 +104,12 @@
 
         if ($dramatic) {
             imagecopyresampled($bg, $im, -150, 290, 0, 0, 1920/1.2, 1080/1.2, 1920, 1080);
+        } else if ($dramatic2) {
+            imagecopyresampled($bg, $im, 430, 330, 0, 0, 1920/1.2, 1080/1.2, 1920, 1080);
         } else {
             imagecopyresampled($bg, $im, 0, 150, 0, 0, 1920, 1080, 1920, 1080);
         }
+
         header('Content-type: image/png');
         imagepng($bg);
 
