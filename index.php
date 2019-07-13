@@ -179,8 +179,8 @@
                 <i class="fas fa-wrench"></i> Advanced Configuration
                 </button>
                 <hr />
-                <p class="small"><i class="fas fa-info-circle"></i> Once you're happy you can download the image and use as a desktop wallpaper by right clicking and Save Image As</p>
-                
+                <p class="small"><i class="fas fa-info-circle"></i> Once you're happy you can download the image and use as a desktop wallpaper by clicking the button below:</p>
+                <a :href="imageUrl + '&download=true'" class="btn btn-primary"><i class="fas fa-cloud-download-alt"></i> Download Image</a>
             </div>
         </div>
 

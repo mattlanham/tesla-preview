@@ -63,6 +63,10 @@
     $file = "tmp/".$_GET['wheels'].$_GET['color'].$_GET['facing'].$r.$g.$b.$_GET['logo'].$_GET['background'].".png";
 
     if (file_exists($file)) {
+        if (array_key_exists('download', $_GET) && $_GET['download'] == 'true') {
+            header('Content-Disposition: Attachment;filename=tesla-wallpaper.png'); 
+        }
+        
         header('Content-type: image/png');
         $im = imagecreatefrompng($file);
         imagepng($im);
@@ -113,6 +117,10 @@
             imagecopyresampled($bg, $im, 590, 410, 0, 0, 1920/1.5, 1080/1.5, 1920, 1080);
         } else {
             imagecopyresampled($bg, $im, 0, 150, 0, 0, 1920, 1080, 1920, 1080);
+        }
+
+        if (array_key_exists('download', $_GET) && $_GET['download'] == 'true') {
+            header('Content-Disposition: Attachment;filename=tesla-wallpaper.png'); 
         }
 
         header('Content-type: image/png');
