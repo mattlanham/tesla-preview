@@ -21,7 +21,10 @@
         position: absolute;
         top: 20px;
         left: 20px;
-        width: 200px;
+        width: 300px;
+        border: 1px solid #CCC;
+        padding: 20px;
+        background: white;
     }
     select {
         width: 100px;
@@ -60,6 +63,8 @@
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143791629-1"></script>
+<script src="https://kit.fontawesome.com/64272cd503.js"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -77,11 +82,20 @@
 
         <img class="carImg" :src="imageUrl" />
 
-        <div class="popout">
-            <h1>Tesla Vehicle Preview</h1>
-            <hr />
-            <div class="slim">
-                <div class="form-group">
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Configure Vehicle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <div class="form-group">
                     <label for="exampleInputEmail1">Colour</label>
                     <select name="colour" v-model="color" class="form-control">
                         <option value="$PBSB">Black</option>
@@ -102,7 +116,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Image Background</label>
+                    <label for="exampleInputEmail1">Background</label>
                     <select name="background" v-model="background" class="form-control">
                         <option value="white">White</option>
                         <option value="black">Black</option>
@@ -128,8 +142,31 @@
                         <option value="none">None</option>
                     </select>
                 </div>
-                <p class="small">If you like this site and haven't ordered yet, then use my link and we'll both get <strong>1,000 free</strong> supercharger miles - thanks!</p>
-                <a href="https://ts.la/matt78103" class="btn btn-primary" target="_blank">Visit Tesla Website</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+
+
+
+
+        <div class="popout">
+            <h1>Configure Model 3</h1>
+            <hr />
+            <div class="slim">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+                <i class="fas fa-wrench"></i> Start Configuration
+                </button>
+                <hr />
+                <div class="form-group">
+                    <p class="small">If you like this site and haven't ordered yet, then use my link and we'll both get <strong>1,000 free</strong> supercharger miles - thanks!</p>
+                    <a href="https://ts.la/matt78103" class="btn btn-outline-primary btn-sm" target="_blank">Visit Tesla Website</a>
+                </div>
             </div>
         </div>
 
