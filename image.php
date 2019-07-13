@@ -46,7 +46,7 @@
 
     $file = "tmp/".$_GET['wheels'].$_GET['color'].$_GET['facing'].$r.$g.$b.".png";
 
-    if (file_exists($file)) {
+    if (!file_exists($file)) {
         header('Content-type: image/png');
         $im = imagecreatefrompng($file);
         imagepng($im);
@@ -66,9 +66,13 @@
         imagealphablending($im, false);
         imagesavealpha($im, true);
 
+        $im2 = imagecreatefrompng('logo.png');
+        imagealphablending($im2, false);
+        imagesavealpha($im2, true);
 
         // Show the magic
-        imagecopyresampled($bg, $im, 0, 0, 0, 0, 1920, 1080, 1920, 1080);
+        imagecopyresampled($bg, $im2, 800, 90, 0, 0, 1920/6, 1080/6, 1920, 1080);
+        imagecopyresampled($bg, $im, 0, 150, 0, 0, 1920, 1080, 1920, 1080);
         header('Content-type: image/png');
         imagepng($bg);
 
