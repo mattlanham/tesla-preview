@@ -100,16 +100,16 @@
                         <option value="$W32P">20"</option>
                     </select>
                 </div>
-                <!-- 
+                
                 <div class="form-group">
                     <label for="exampleInputEmail1">Image Background</label>
                     <select name="background" v-model="background" class="form-control">
                         <option value="0">White</option>
-                        <option value="1">Transparent</option>
+                        <!-- <option value="1">Transparent</option>-->
                         <option value="3">Gradient</option>
                     </select>
                 </div>
-                -->
+            
                 <div class="form-group">
                     <label for="exampleInputEmail1">Orientation</label>
                     <select name="facing" v-model="facing" class="form-control">
