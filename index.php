@@ -51,6 +51,21 @@
         }
         
     }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+
+        .carImg {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+        }
+        html, body, #app {
+            height: 100vh;
+        }
+
+  
+    }
+}
   
 </style>
 
