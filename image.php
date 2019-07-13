@@ -54,7 +54,7 @@
         $b = $_GET['b'];
     }
 
-    $file = "tmp/".$_GET['wheels'].$_GET['color'].$_GET['facing'].$r.$g.$b.$_GET['logo'].".png";
+    $file = "tmp/".$_GET['wheels'].$_GET['color'].$_GET['facing'].$r.$g.$b.$_GET['logo'].$_GET['background'].".png";
 
     if (file_exists($file)) {
         header('Content-type: image/png');
