@@ -156,12 +156,12 @@
 
 
         <div class="popout">
-            <h1>Configure Model 3</h1>
-            <hr />
             <div class="slim">
                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
                 <i class="fas fa-wrench"></i> Start Configuration
                 </button>
+                <hr />
+                <p class="small"><i class="fas fa-info-circle"></i> Once you're happy you can download the image and use as a desktop wallpaper by right clicking and Save Image As</p>
                 <hr />
                 <div class="form-group">
                     <p class="small">If you like this site and haven't ordered yet, then use my link and we'll both get <strong>1,000 free</strong> supercharger miles - thanks!</p>
