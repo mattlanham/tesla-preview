@@ -214,7 +214,7 @@
                 imageUrl: '',
                 style: '$DV4W',
                 wheels: '$W38B',
-                background: 'dramatic',
+                background: 'dramatic3',
                 facing: '$DRRH',
                 logo: 'tesla',
                 
