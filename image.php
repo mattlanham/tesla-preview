@@ -43,24 +43,39 @@
         $g = $_GET['g'];
         $b = $_GET['b'];
     }
-    
-    // Create a BG
-    $bg = imagecreatetruecolor(1920, 1080);
-    $red = imagecolorallocate($bg, $r, $g, $b);
-    imagefill($bg, 0, 0, $red);
 
-    // Build the image URL
-    $url = 'https://static-assets.tesla.com/configurator/compositor?&options=' . $_GET['wheels'] . ',' . $_GET['color'] . ',$DV2W,$MT301,$IN3BB,' . $_GET['facing'] . '&view=STUD_3QTR&model=m3&size=1920&bkba_opt=1';
+    $file = "tmp/".$_GET['wheels'].$_GET['color'].$_GET['facing'].$r.$g.$b.".png";
 
-    // Pull in the image
-    $im = imagecreatefrompng($url);
-    imagealphablending($im, false);
-    imagesavealpha($im, true);
+    if (file_exists($file)) {
+        header('Content-type: image/png');
+        $im = imagecreatefrompng($file);
+        imagepng($im);
+        
+    } else {
+        
+        // Create a BG
+        $bg = imagecreatetruecolor(1920, 1080);
+        $red = imagecolorallocate($bg, $r, $g, $b);
+        imagefill($bg, 0, 0, $red);
+
+        // Build the image URL
+        $url = 'https://static-assets.tesla.com/configurator/compositor?&options=' . $_GET['wheels'] . ',' . $_GET['color'] . ',$DV2W,$MT301,$IN3BB,' . $_GET['facing'] . '&view=STUD_3QTR&model=m3&size=1920&bkba_opt=1';
+
+        // Pull in the image
+        $im = imagecreatefrompng($url);
+        imagealphablending($im, false);
+        imagesavealpha($im, true);
 
 
-    // Show the magic
-    imagecopyresampled($bg, $im, 0, 0, 0, 0, 1920, 1080, 1920, 1080);
-    header('Content-type: image/png');
-    imagepng($bg);
-    imagedestroy($bg);
+        // Show the magic
+        imagecopyresampled($bg, $im, 0, 0, 0, 0, 1920, 1080, 1920, 1080);
+        header('Content-type: image/png');
+        imagepng($bg);
 
+        // Save to file
+        imagepng($bg, $file);
+
+
+        imagedestroy($bg);
+        imagedestroy($im);
+    }
