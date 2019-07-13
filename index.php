@@ -121,6 +121,7 @@
                         <option value="slate">Slate</option>
                         <option value="dramatic">Dramatic</option>
                         <option value="dramatic2">Dramatic 2</option>
+                        <option value="dramatic3">Dramatic 3</option>
                     </select>
                 </div>
             
