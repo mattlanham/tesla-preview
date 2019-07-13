@@ -110,25 +110,6 @@
                 </button>
             </div>
             <div class="modal-body">
-            <div class="form-group">
-                    <label for="exampleInputEmail1">Colour</label>
-                    <select name="colour" v-model="color" class="form-control">
-                        <option value="$PBSB">Black</option>
-                        <option value="$PMNG">Silver</option>
-                        <option value="$PPSB">Blue</option>
-                        <option value="$PPSW">White</option>
-                        <option value="$PPMR">Red</option>
-
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Wheels</label>
-                    <select name="wheels" v-model="wheels" class="form-control">
-                        <option value="$W38B">18" Aero</option>
-                        <option value="$W39B">19"</option>
-                        <option value="$W32P">20"</option>
-                    </select>
-                </div>
                 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Background</label>
@@ -173,8 +154,27 @@
 
         <div class="popout">
             <div class="slim">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Colour</label>
+                    <select name="colour" v-model="color" class="form-control">
+                        <option value="$PBSB">Black</option>
+                        <option value="$PMNG">Silver</option>
+                        <option value="$PPSB">Blue</option>
+                        <option value="$PPSW">White</option>
+                        <option value="$PPMR">Red</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Wheels</label>
+                    <select name="wheels" v-model="wheels" class="form-control">
+                        <option value="$W38B">18" Aero</option>
+                        <option value="$W39B">19"</option>
+                        <option value="$W32P">20"</option>
+                    </select>
+                </div>
                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
-                <i class="fas fa-wrench"></i> Start Configuration
+                <i class="fas fa-wrench"></i> Advanced Configuration
                 </button>
                 <hr />
                 <p class="small"><i class="fas fa-info-circle"></i> Once you're happy you can download the image and use as a desktop wallpaper by right clicking and Save Image As</p>
