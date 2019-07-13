@@ -46,7 +46,7 @@
 
     $file = "tmp/".$_GET['wheels'].$_GET['color'].$_GET['facing'].$r.$g.$b.".png";
 
-    if (!file_exists($file)) {
+    if (file_exists($file)) {
         header('Content-type: image/png');
         $im = imagecreatefrompng($file);
         imagepng($im);
