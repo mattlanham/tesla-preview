@@ -104,9 +104,11 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Image Background</label>
                     <select name="background" v-model="background" class="form-control">
-                        <option value="0">White</option>
-                        <!-- <option value="1">Transparent</option>-->
-                        <option value="3">Gradient</option>
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="grey">Grey</option>
+                        <option value="lightgrey">Light Grey</option>
+                        <option value="slate">Slate</option>
                     </select>
                 </div>
             
@@ -150,11 +152,11 @@
                 imageUrl: '',
                 style: '$DV4W',
                 wheels: '$W38B',
-                background: '0',
+                background: 'white',
                 facing: '$DRRH',
                 
                 changeImage: function() {
-                    this.imageUrl = 'https://static-assets.tesla.com/configurator/compositor?&options=' + this.wheels + ',' + this.color + ',$DV2W,$MT301,$IN3BB,' + this.facing + '&view=STUD_3QTR&model=m3&size=1920&bkba_opt='+this.background;
+                    this.imageUrl = 'image.php?wheels=' + this.wheels + '&color=' + this.color + '&facing=' + this.facing + '&background=' + this.background;
                     this.styleObject.backgroundImage = "url(" + this.imageUrl + ")";
                     console.log(this.imageUrl);
                 }
