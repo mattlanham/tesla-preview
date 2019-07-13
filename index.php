@@ -119,6 +119,15 @@
                         <option value="$DRRH">Right</option>
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Logo</label>
+                    <select name="logo" v-model="logo" class="form-control">
+                        <option value="tesla">Tesla</option>
+                        <option value="toguk">TOGUK</option>
+                        <option value="none">None</option>
+                    </select>
+                </div>
                 <p class="small">If you like this site and haven't ordered yet, then use my link and we'll both get <strong>1,000 free</strong> supercharger miles - thanks!</p>
                 <a href="https://ts.la/matt78103" class="btn btn-primary" target="_blank">Visit Tesla Website</a>
             </div>
@@ -156,9 +165,10 @@
                 wheels: '$W38B',
                 background: 'white',
                 facing: '$DRRH',
+                logo: 'tesla',
                 
                 changeImage: function() {
-                    this.imageUrl = 'image.php?wheels=' + this.wheels + '&color=' + this.color + '&facing=' + this.facing + '&background=' + this.background;
+                    this.imageUrl = 'image.php?wheels=' + this.wheels + '&color=' + this.color + '&facing=' + this.facing + '&background=' + this.background + '&logo=' + this.logo;
                     this.styleObject.backgroundImage = "url(" + this.imageUrl + ")";
                     console.log(this.imageUrl);
                 }
@@ -174,6 +184,9 @@
                     this.changeImage();
                 },
                 background: function (val) {
+                    this.changeImage();
+                },
+                logo: function (val) {
                     this.changeImage();
                 }
             }

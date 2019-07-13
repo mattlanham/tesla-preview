@@ -44,7 +44,7 @@
         $b = $_GET['b'];
     }
 
-    $file = "tmp/".$_GET['wheels'].$_GET['color'].$_GET['facing'].$r.$g.$b.".png";
+    $file = "tmp/".$_GET['wheels'].$_GET['color'].$_GET['facing'].$r.$g.$b.$_GET['logo'].".png";
 
     if (file_exists($file)) {
         header('Content-type: image/png');
@@ -65,13 +65,22 @@
         $im = imagecreatefrompng($url);
         imagealphablending($im, false);
         imagesavealpha($im, true);
+        
+        if ($_GET['logo'] == 'tesla') {
+            $im2 = imagecreatefrompng('logo.png');
+            imagealphablending($im2, false);
+            imagesavealpha($im2, true);
+            // Show the magic
+            imagecopyresampled($bg, $im2, 800, 90, 0, 0, 1920/6, 1080/6, 1920, 1080);
+        } else if ($_GET['logo'] == 'toguk') {
+            $im2 = imagecreatefrompng('toguk.png');
+            imagealphablending($im2, false);
+            imagesavealpha($im2, true);
+            // Show the magic
+            imagecopyresampled($bg, $im2, 846, 90, 0, 0, 454/2, 454/2, 454, 454);
+        }
 
-        $im2 = imagecreatefrompng('logo.png');
-        imagealphablending($im2, false);
-        imagesavealpha($im2, true);
-
-        // Show the magic
-        imagecopyresampled($bg, $im2, 800, 90, 0, 0, 1920/6, 1080/6, 1920, 1080);
+    
         imagecopyresampled($bg, $im, 0, 150, 0, 0, 1920, 1080, 1920, 1080);
         header('Content-type: image/png');
         imagepng($bg);
