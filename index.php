@@ -138,6 +138,7 @@
                         <option value="grey">Grey</option>
                         <option value="lightgrey">Light Grey</option>
                         <option value="slate">Slate</option>
+                        <option value="dramatic">Dramatic</option>
                     </select>
                 </div>
             
@@ -211,7 +212,7 @@
                 imageUrl: '',
                 style: '$DV4W',
                 wheels: '$W38B',
-                background: 'white',
+                background: 'dramatic',
                 facing: '$DRRH',
                 logo: 'tesla',
                 

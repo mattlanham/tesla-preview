@@ -1,4 +1,10 @@
 <?php
+    $dramatic = FALSE;
+    if (array_key_exists('background', $_GET) && $_GET['background'] == 'dramatic') {
+        $dramatic = TRUE;
+    }
+
+
     $r = 112;
     $g = 128;
     $b = 144;
@@ -38,6 +44,10 @@
         }
     }
 
+    if ($dramatic) {
+        $_GET['facing'] = 'left';
+    }
+
     if (array_key_exists('r', $_GET) && array_key_exists('g', $_GET) && array_key_exists('b', $_GET)) {
         $r = $_GET['r'];
         $g = $_GET['g'];
@@ -53,10 +63,15 @@
         
     } else {
         
+        
         // Create a BG
         $bg = imagecreatetruecolor(1920, 1080);
         $red = imagecolorallocate($bg, $r, $g, $b);
         imagefill($bg, 0, 0, $red);
+
+        if ($dramatic) {
+            $bg = imagecreatefrompng('dramatic.png');
+        }
 
         // Build the image URL
         $url = 'https://static-assets.tesla.com/configurator/compositor?&options=' . $_GET['wheels'] . ',' . $_GET['color'] . ',$DV2W,$MT301,$IN3BB,' . $_GET['facing'] . '&view=STUD_3QTR&model=m3&size=1920&bkba_opt=1';
@@ -80,8 +95,11 @@
             imagecopyresampled($bg, $im2, 846, 90, 0, 0, 454/2, 454/2, 454, 454);
         }
 
-    
-        imagecopyresampled($bg, $im, 0, 150, 0, 0, 1920, 1080, 1920, 1080);
+        if ($dramatic) {
+            imagecopyresampled($bg, $im, -150, 290, 0, 0, 1920/1.2, 1080/1.2, 1920, 1080);
+        } else {
+            imagecopyresampled($bg, $im, 0, 150, 0, 0, 1920, 1080, 1920, 1080);
+        }
         header('Content-type: image/png');
         imagepng($bg);
 
