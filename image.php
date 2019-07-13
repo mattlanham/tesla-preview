@@ -68,7 +68,7 @@
 
     $file = "tmp/".$_GET['wheels'].$_GET['color'].$_GET['facing'].$r.$g.$b.$_GET['logo'].$_GET['background'].$withoutcaps.".png";
 
-    if (file_exists($file)) {
+    if (!file_exists($file)) {
         if (array_key_exists('download', $_GET) && $_GET['download'] == 'true') {
             header('Content-Disposition: Attachment;filename=tesla-wallpaper.png'); 
         }
@@ -153,7 +153,7 @@
                 imagealphablending($aero, false);
                 imagesavealpha($aero, true);
                 // Show the magic
-                imagecopyresampled($bg, $aero, 860, 780, 0, 0, 650, 145, 688, 145);
+                imagecopyresampled($bg, $aero, 863, 785, 0, 0, 647, 140, 688, 145);
             } else {
                 if ($_GET['facing'] == '$DRRH') {
                     $aero = imagecreatefrompng('aero.png');
