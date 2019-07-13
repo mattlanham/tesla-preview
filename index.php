@@ -119,7 +119,7 @@
                         <option value="$DRRH">Right</option>
                     </select>
                 </div>
-                <p class="small">If you like this site and haven't ordered yet, then use my link and we'll both get 1,000 free supercharger miles</p>
+                <p class="small">If you like this site and haven't ordered yet, then use my link and we'll both get <strong>1,000 free</strong> supercharger miles - thanks!</p>
                 <a href="https://ts.la/matt78103" class="btn btn-primary" target="_blank">Visit Tesla Website</a>
             </div>
         </div>
