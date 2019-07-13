@@ -68,7 +68,7 @@
 
     $file = "tmp/".$_GET['wheels'].$_GET['color'].$_GET['facing'].$r.$g.$b.$_GET['logo'].$_GET['background'].$withoutcaps.".png";
 
-    if (!file_exists($file)) {
+    if (file_exists($file)) {
         if (array_key_exists('download', $_GET) && $_GET['download'] == 'true') {
             header('Content-Disposition: Attachment;filename=tesla-wallpaper.png'); 
         }
