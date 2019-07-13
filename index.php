@@ -45,6 +45,17 @@
 <meta property="og:description"        content="Allows you to easy see different color and wheel combinations for Tesla Model 3, and also download the image to use as a wallpaper" />
 <meta property="og:image"              content="http://tesla.lanham.io/preview.png" />
 
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143791629-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-143791629-1');
+</script>
+
   </head>
   <body>
 
