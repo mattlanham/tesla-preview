@@ -37,6 +37,13 @@
     .carImg {
         width: 100%;
     }
+    @media (min-width: 320px) and (max-width: 480px) {
+        .carImg {
+            width: 150%;
+            margin-top: 25%;
+        }
+    }
+  
 </style>
 
 <meta property="og:url"                content="http://tesla.lanham.io/" />
