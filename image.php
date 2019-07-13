@@ -2,6 +2,7 @@
     $dramatic = FALSE;
     $dramatic2 = FALSE;
     $dramatic3 = FALSE;
+    $withoutcaps = FALSE;
 
     if (array_key_exists('background', $_GET) && $_GET['background'] == 'dramatic') {
         $dramatic = TRUE;
@@ -12,6 +13,11 @@
     } else if (array_key_exists('background', $_GET) && $_GET['background'] == 'dramatic3') {
         $dramatic3 = TRUE;
         $_GET['facing'] = '$DRRH';
+    }
+
+    if ($_GET['wheels'] == '$W38BWC') {
+        $_GET['wheels'] = '$W38B';
+        $withoutcaps = TRUE;
     }
 
 
@@ -60,7 +66,7 @@
         $b = $_GET['b'];
     }
 
-    $file = "tmp/".$_GET['wheels'].$_GET['color'].$_GET['facing'].$r.$g.$b.$_GET['logo'].$_GET['background'].".png";
+    $file = "tmp/".$_GET['wheels'].$_GET['color'].$_GET['facing'].$r.$g.$b.$_GET['logo'].$_GET['background'].$withoutcaps.".png";
 
     if (file_exists($file)) {
         if (array_key_exists('download', $_GET) && $_GET['download'] == 'true') {
@@ -109,6 +115,13 @@
             imagecopyresampled($bg, $im2, 846, 90, 0, 0, 454/2, 454/2, 454, 454);
         }
 
+
+
+        
+
+
+
+
         if ($dramatic) {
             imagecopyresampled($bg, $im, -150, 290, 0, 0, 1920/1.2, 1080/1.2, 1920, 1080);
         } else if ($dramatic2) {
@@ -118,6 +131,47 @@
         } else {
             imagecopyresampled($bg, $im, 0, 150, 0, 0, 1920, 1080, 1920, 1080);
         }
+
+        if ($_GET['wheels'] == '$W38B' && $withoutcaps == TRUE) {
+            
+            if ($dramatic) {
+                $aero = imagecreatefrompng('aero-lh.png');
+                imagealphablending($aero, false);
+                imagesavealpha($aero, true);
+                // Show the magic
+                imagecopyresampled($bg, $aero, 302, 763, 0, 0, 805, 177, 727, 157);
+            } else if ($dramatic2) {
+                // Aero without caps
+                $aero = imagecreatefrompng('aero-lh.png');
+                imagealphablending($aero, false);
+                imagesavealpha($aero, true);
+                // Show the magic
+                imagecopyresampled($bg, $aero, 880, 803, 0, 0, 805, 177, 727, 157);
+            } else if ($dramatic3) {
+                // Aero without caps
+                $aero = imagecreatefrompng('aero.png');
+                imagealphablending($aero, false);
+                imagesavealpha($aero, true);
+                // Show the magic
+                imagecopyresampled($bg, $aero, 860, 780, 0, 0, 650, 145, 688, 145);
+            } else {
+                if ($_GET['facing'] == '$DRRH') {
+                    $aero = imagecreatefrompng('aero.png');
+                    imagealphablending($aero, false);
+                    imagesavealpha($aero, true);
+                    // Show the magic
+                    imagecopyresampled($bg, $aero, 410, 710, 0, 0, 968, 215, 688, 145);
+                } else {
+                    $aero = imagecreatefrompng('aero-lh.png');
+                    imagealphablending($aero, false);
+                    imagesavealpha($aero, true);
+                    // Show the magic
+                    imagecopyresampled($bg, $aero, 540, 718, 0, 0, 967, 210, 727, 157);
+                }
+                
+            }
+        }
+
 
         if (array_key_exists('download', $_GET) && $_GET['download'] == 'true') {
             header('Content-Disposition: Attachment;filename=tesla-wallpaper.png'); 

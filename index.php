@@ -171,6 +171,7 @@
                     <label for="exampleInputEmail1">Wheels</label>
                     <select name="wheels" v-model="wheels" class="form-control">
                         <option value="$W38B">18" Aero</option>
+                        <option value="$W38BWC">18" Aero (without caps)</option>
                         <option value="$W39B">19"</option>
                         <option value="$W32P">20"</option>
                     </select>
