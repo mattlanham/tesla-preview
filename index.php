@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Tesla Vehicle Preview</title>
+    <title>Tesla Model 3 Preview</title>
     <style>
     body, html, #app {
         height: 100%;
@@ -38,6 +38,12 @@
         width: 100%;
     }
 </style>
+
+<meta property="og:url"                content="http://tesla.lanham.io/" />
+<meta property="og:type"               content="website" />
+<meta property="og:title"              content="Tesla Model 3 Preview" />
+<meta property="og:description"        content="Allows you to easy see different color and wheel combinations for Tesla Model 3, and also download the image to use as a wallpaper" />
+<meta property="og:image"              content="http://tesla.lanham.io/preview.png" />
 
   </head>
   <body>
